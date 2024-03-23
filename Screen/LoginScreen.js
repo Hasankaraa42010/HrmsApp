@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
-import { View ,StyleSheet, Text, Button, Alert} from 'react-native'
+import { View ,StyleSheet, Text, Button, Alert, TouchableOpacity} from 'react-native'
 import { TextInput } from 'react-native-gesture-handler'
 
 export default function LoginScreen({navigation}) {
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
+    const handleSignUp=()=>{
+        navigation.navigate('Kaydolma');
+
+    }
     const handleLogin=()=>{
         if(userName=='Hasan'){
             if (password=='Kara') {
@@ -36,6 +40,9 @@ export default function LoginScreen({navigation}) {
         />
         </View>
         <Button title='Giriş Yap' onPress={handleLogin}/>
+        <TouchableOpacity onPress={handleSignUp}>
+        <Text>Hesabınız yoksa kaydolun</Text>
+      </TouchableOpacity>
     </View>
   )
 }
